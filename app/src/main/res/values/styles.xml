@@ -1,10 +1,26 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="BaseAppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">@color/baseColorPrimary</item>
+        <item name="colorPrimaryDark">@color/baseColorPrimaryDark</item>
+        <item name="colorAccent">@color/baseColorAccent</item>
     </style>
 
+    <style name="RedAppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">@color/redColorPrimary</item>
+        <item name="colorPrimaryDark">@color/redColorPrimaryDark</item>
+        <item name="colorAccent">@color/redColorAccent</item>
+    </style>
+
+    <style name="PurpleAppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">@color/purpleColorPrimary</item>
+        <item name="colorPrimaryDark">@color/purpleColorPrimaryDark</item>
+        <item name="colorAccent">@color/purpleColorAccent</item>
+    </style>
+
+    <style name="OrangeAppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">@color/orangeColorPrimary</item>
+        <item name="colorPrimaryDark">@color/orangeColorPrimaryDark</item>
+        <item name="colorAccent">@color/orangeColorAccent</item>
+    </style>
 </resources>

@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+
+    <color name="baseColorPrimaryText">#212121</color>
+
+    <!--    Стандартная тема-->
+    <color name="baseColorPrimary">#3F51B5</color>
+    <color name="baseColorPrimaryDark">#303F9F</color>
+    <color name="baseColorAccent">#536DFE</color>
+
+    <!--    Цвета для красной темы-->
+    <color name="redColorPrimary">#F44336</color>
+    <color name="redColorPrimaryDark">#D32F2F</color>
+    <color name="redColorAccent">#448AFF</color>
+
+    <!--    Цвета для темно-фиолетовой темы-->
+    <color name="purpleColorPrimary">#673AB7</color>
+    <color name="purpleColorPrimaryDark">#512DA8</color>
+    <color name="purpleColorAccent">#7C4DFF</color>
+
+    <!--    Цвета для оранжевой темы-->
+    <color name="orangeColorPrimary">#FF5722</color>
+    <color name="orangeColorPrimaryDark">#E64A19</color>
+    <color name="orangeColorAccent">#607D8B</color>
 </resources>

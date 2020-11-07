@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">MaterialApp</string>
+
+    <string name="btn_text_start_activity">Запуск</string>
+    <string name="btn_title_theme_red">Тема №1</string>
+    <string name="btn_title_theme_purple">Тема №2</string>
+    <string name="btn_title_theme_orange">Тема №3</string>
+    <string name="btn_title_cancel_theme">Сбросить</string>
 </resources>

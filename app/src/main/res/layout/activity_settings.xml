@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".ui.activity.SettingsActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <Button
+            android:id="@+id/btn_red_theme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/redColorPrimaryDark"
+            android:onClick="setRedTheme"
+            android:text="@string/btn_title_theme_red" />
+
+        <Button
+            android:id="@+id/btn_purple_theme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/purpleColorPrimaryDark"
+            android:onClick="setPurpleTheme"
+            android:text="@string/btn_title_theme_purple" />
+
+        <Button
+            android:id="@+id/btn_orange_theme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/orangeColorPrimaryDark"
+            android:onClick="setOrangeTheme"
+            android:text="@string/btn_title_theme_orange" />
+
+        <Button
+            android:id="@+id/btn_default_theme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/baseColorPrimaryDark"
+            android:onClick="setDefaultTheme"
+            android:text="@string/btn_title_cancel_theme" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

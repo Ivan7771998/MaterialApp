@@ -4,23 +4,44 @@
         <item name="colorPrimary">@color/baseColorPrimary</item>
         <item name="colorPrimaryDark">@color/baseColorPrimaryDark</item>
         <item name="colorAccent">@color/baseColorAccent</item>
+        <item name="colorStrokeUnFocus">@color/baseColorAccent</item>
+        <item name="colorStrokeFocus">@android:color/holo_green_dark</item>
     </style>
 
     <style name="RedAppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <item name="colorPrimary">@color/redColorPrimary</item>
         <item name="colorPrimaryDark">@color/redColorPrimaryDark</item>
         <item name="colorAccent">@color/redColorAccent</item>
+        <item name="colorStrokeUnFocus">@color/redColorAccent</item>
+        <item name="colorStrokeFocus">@color/redColorPrimary</item>
     </style>
 
     <style name="PurpleAppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <item name="colorPrimary">@color/purpleColorPrimary</item>
         <item name="colorPrimaryDark">@color/purpleColorPrimaryDark</item>
         <item name="colorAccent">@color/purpleColorAccent</item>
+        <item name="colorStrokeUnFocus">@color/purpleColorAccent</item>
+        <item name="colorStrokeFocus">@color/purpleColorPrimary</item>
     </style>
 
     <style name="OrangeAppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <item name="colorPrimary">@color/orangeColorPrimary</item>
         <item name="colorPrimaryDark">@color/orangeColorPrimaryDark</item>
         <item name="colorAccent">@color/orangeColorAccent</item>
+        <item name="colorStrokeUnFocus">@color/orangeColorAccent</item>
+        <item name="colorStrokeFocus">@color/orangeColorPrimary</item>
+    </style>
+
+
+
+    <style name="EditMaterial" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="boxStrokeColor">@color/edit_stroke_selector</item>
+        <item name="boxBackgroundColor">@android:color/white</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="counterEnabled">true</item>
+        <item name="errorEnabled">true</item>
+        <item name="counterMaxLength">6</item>
     </style>
 </resources>

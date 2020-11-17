@@ -6,4 +6,6 @@
     <string name="btn_title_theme_purple">Тема №2</string>
     <string name="btn_title_theme_orange">Тема №3</string>
     <string name="btn_title_cancel_theme">Сбросить</string>
+    <string name="hint_input_name">Введите имя</string>
+    <string name="error">Ошибка ввода данных!</string>
 </resources>

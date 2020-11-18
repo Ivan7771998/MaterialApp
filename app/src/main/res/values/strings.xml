@@ -8,4 +8,12 @@
     <string name="btn_title_cancel_theme">Сбросить</string>
     <string name="hint_input_name">Введите имя</string>
     <string name="error">Ошибка ввода данных!</string>
+    <string name="title_activity_start">StartActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+
+    <string name="menu_home">Список фото</string>
+    <string name="menu_settings">Настройки темы</string>
+
 </resources>

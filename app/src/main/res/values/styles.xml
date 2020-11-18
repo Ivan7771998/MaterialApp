@@ -1,6 +1,6 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="BaseAppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="BaseAppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/baseColorPrimary</item>
         <item name="colorPrimaryDark">@color/baseColorPrimaryDark</item>
         <item name="colorAccent">@color/baseColorAccent</item>
@@ -8,7 +8,7 @@
         <item name="colorStrokeFocus">@android:color/holo_green_dark</item>
     </style>
 
-    <style name="RedAppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="RedAppTheme" parent="BaseAppTheme">
         <item name="colorPrimary">@color/redColorPrimary</item>
         <item name="colorPrimaryDark">@color/redColorPrimaryDark</item>
         <item name="colorAccent">@color/redColorAccent</item>
@@ -16,7 +16,7 @@
         <item name="colorStrokeFocus">@color/redColorPrimary</item>
     </style>
 
-    <style name="PurpleAppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="PurpleAppTheme" parent="BaseAppTheme">
         <item name="colorPrimary">@color/purpleColorPrimary</item>
         <item name="colorPrimaryDark">@color/purpleColorPrimaryDark</item>
         <item name="colorAccent">@color/purpleColorAccent</item>
@@ -24,14 +24,13 @@
         <item name="colorStrokeFocus">@color/purpleColorPrimary</item>
     </style>
 
-    <style name="OrangeAppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="OrangeAppTheme" parent="BaseAppTheme">
         <item name="colorPrimary">@color/orangeColorPrimary</item>
         <item name="colorPrimaryDark">@color/orangeColorPrimaryDark</item>
         <item name="colorAccent">@color/orangeColorAccent</item>
         <item name="colorStrokeUnFocus">@color/orangeColorAccent</item>
         <item name="colorStrokeFocus">@color/orangeColorPrimary</item>
     </style>
-
 
 
     <style name="EditMaterial" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
@@ -44,4 +43,13 @@
         <item name="errorEnabled">true</item>
         <item name="counterMaxLength">6</item>
     </style>
+
+    <style name="BaseAppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="BaseAppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="BaseAppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

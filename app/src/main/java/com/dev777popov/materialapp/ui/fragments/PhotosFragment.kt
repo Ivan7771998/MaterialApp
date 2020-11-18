@@ -1,86 +1,86 @@
 package com.dev777popov.materialapp.ui.fragments
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.dev777popov.materialapp.R
-import com.dev777popov.materialapp.tools.Const.Companion.CHANGE_THEME
-import com.dev777popov.materialapp.ui.activity.SettingsActivity
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
-import org.w3c.dom.Text
-
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
+import com.dev777popov.materialapp.databinding.FragmentPhotosBinding
+import com.dev777popov.materialapp.tools.DataStoreHelper
+import com.dev777popov.materialapp.tools.ShowInfo
+import com.dev777popov.materialapp.ui.adapter.PhotosAdapter
+import com.dev777popov.materialapp.ui.vm.VmPhotosFragment
 
 class PhotosFragment : Fragment() {
 
-    private var editLayout: TextInputLayout? = null
-    private var textEdit: TextInputEditText? = null
+    private lateinit var vmPhotosFragment: VmPhotosFragment
+    private var _binding: FragmentPhotosBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_photos, container, false)
+        _binding = FragmentPhotosBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initVM()
         initView()
     }
 
+    private fun initVM() {
+        vmPhotosFragment = ViewModelProvider(requireActivity()).get(VmPhotosFragment::class.java)
+    }
+
     private fun initView() {
-        view?.findViewById<Button>(R.id.btn_start)?.setOnClickListener {
-            goToSecond()
+        binding.fab.setOnClickListener {
+            dispatchTakePictureIntent()
         }
-
-        editLayout = view?.findViewById<TextInputLayout>(R.id.edit_layout)
-        textEdit = view?.findViewById<TextInputEditText>(R.id.edit_text)
-        textEdit?.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(p0: Editable?) {
-            }
-
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if (shouldShowError()) showError() else editLayout?.error = null
-            }
-
+        binding.listPhoto.setHasFixedSize(true)
+        binding.listPhoto.layoutManager = GridLayoutManager(requireContext(), 2)
+        vmPhotosFragment.updateImageList(DataStoreHelper(requireContext()))
+        vmPhotosFragment.getImageLiveData().observe(viewLifecycleOwner, Observer {
+            binding.listPhoto.adapter = PhotosAdapter(it)
         })
     }
 
-    private fun shouldShowError(): Boolean {
-        val textLength: Int = textEdit?.text?.length ?: 0
-        return textLength > 6
-    }
-
-    private fun showError() {
-        editLayout?.error = getString(R.string.error)
-    }
-
-    private fun goToSecond() {
-        startActivityForResult(SettingsActivity.newIntent(requireContext()), CHANGE_THEME)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK) {
-            when (requestCode) {
-                CHANGE_THEME -> {
-                    requireActivity().recreate()
+    private fun dispatchTakePictureIntent() {
+        Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
+            takePictureIntent.resolveActivity(requireActivity().packageManager)?.also {
+                val photoURL = DataStoreHelper(requireContext()).getPhotoURL()
+                if (photoURL != null) {
+                    takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURL)
+                    startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO)
                 }
             }
         }
     }
 
-    companion object {
-        fun newInstance() = PhotosFragment()
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_TAKE_PHOTO && resultCode == AppCompatActivity.RESULT_OK) {
+            vmPhotosFragment.updateImageList(DataStoreHelper(requireContext()))
+            ShowInfo.snack(binding.fab, "Фото успешно добавлено!")
+        }
     }
+
+    companion object {
+        const val REQUEST_TAKE_PHOTO = 7777
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 }
